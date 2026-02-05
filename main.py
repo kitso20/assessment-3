@@ -18,8 +18,12 @@ import re
 # - values are the average score rounded to 2 decimal places
 #
 def student_score_analyzer(student_scores):
-    pass
+    result = {}
+    for k,v in student_scores.items():
+        result[k] = round((sum(v)/len(v)),2)
 
+    return result
+    
 
 # ==================================================
 # QUESTION 2: Sales Data Cleanup 🟢 EASY
@@ -39,7 +43,7 @@ def student_score_analyzer(student_scores):
 # A list containing only valid sales values
 #
 def clean_sales_data(sales_data):
-    pass
+    return [num for num in sales_data if isinstance(num,int) and num > 0]
 
 
 # ==================================================
@@ -59,8 +63,12 @@ def clean_sales_data(sales_data):
 # - Must use recursion
 # - Loops are not allowed
 #
-def recursive_countdown(n):
-    pass
+# def sudte(n):
+#     return n - 1
+# def recursive_countdown(n):
+    
+
+
 
 
 # ==================================================
@@ -81,8 +89,13 @@ def recursive_countdown(n):
 # [1, [2, [3, 4]], 5] → [1, 2, 3, 4, 5]
 #
 def flatten_list(nested_list):
-    pass
-
+    flate = []
+    for item in nested_list:
+        if isinstance(item,list):
+            flate.extend(flatten_list(item))
+        else:
+            flate.append(item)
+    return flate
 
 # ==================================================
 # QUESTION 5: Username Formatter 🟢 EASY
