@@ -178,7 +178,7 @@ def email_validator(email_list):
 # A list of product names that need restocking
 #
 def restock_alert(inventory, threshold):
-    pass
+    return [k for k,v in inventory.items() if int(v) < threshold]
 
 
 # ==================================================
