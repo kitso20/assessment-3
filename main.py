@@ -117,7 +117,10 @@ def flatten_list(nested_list):
 # A formatted username string
 #
 def format_username(first_name, last_name):
-    pass
+    letter = list(first_name)
+    last = re.sub(r"'",'',last_name)
+    user = f'{letter[0].lower()}{last.lower().strip()}'
+    return user
 
 
 # ==================================================
@@ -139,7 +142,20 @@ def format_username(first_name, last_name):
 # - Use regular expressions
 #
 def email_validator(email_list):
-    pass
+    dic = {"valid": [],
+           "invalid":[]}
+    
+    for email in email_list:
+        print(email)
+        sc = re.match(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}',email)
+        print(sc)
+        if sc:
+            dic["valid"].append(email)
+        else:
+            dic["invalid"].append(email)
+    return dic
+
+
 
 
 # ==================================================

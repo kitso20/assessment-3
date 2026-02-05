@@ -1,10 +1,22 @@
-def flatten_list(nested_list):
-    flate = []
-    for item in nested_list:
-        if isinstance(item,list):
-            flate.extend(flatten_list(item))
-        else:
-            flate.append(item)
-    return flate
+import re
 
-print(flatten_list([1, [2, [3, 4]], 5]))
+def email_validator(email_list):
+    dic = {"valid": [],
+           "invalid":[]}
+    
+    for email in email_list:
+        print(email)
+        sc = re.match(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}',email)
+        print(sc)
+        if sc:
+            dic["valid"].append(email)
+        else:
+            dic["invalid"].append(email)
+    return dic
+
+print(email_validator([
+        "test@example.com",
+        "invalid-email",
+        "user@domain.co",
+        "user@domain"
+    ]))
