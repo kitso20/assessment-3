@@ -202,4 +202,5 @@ def restock_alert(inventory, threshold):
 # Encoded string
 #
 def encode_message(message):
-    pass
+    
+    return "".join(message.replace('e','3').replace('a','@').replace('i','!').replace('o','0').replace('u','^').replace('E','3').replace('A','@').replace('I','!').replace('O','0').replace('U','^'))

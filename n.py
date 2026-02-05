@@ -1,8 +1,3 @@
-def restock_alert(inventory, threshold):
-    return [k for k,v in inventory.items() if int(v) < threshold]
-inventory = {
-        "apples": 5,
-        "bananas": 2,
-        "oranges": 10
-    }
-print(restock_alert(inventory,5))
+def encode_message(message):    
+    return "".join(message.replace('e','3').replace('a','@').replace('i','!').replace('o','0').replace('u','^'))
+print(3,encode_message("I Love You"))
